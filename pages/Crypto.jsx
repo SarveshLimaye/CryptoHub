@@ -6,8 +6,6 @@ import Image from "next/image";
 import { fetchApi } from "../utils/fetchApi";
 
 const Crypto = ({coins}) => {
-
-  console.log(coins)
      
         return (
           <Box>
