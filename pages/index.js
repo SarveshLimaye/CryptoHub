@@ -1,5 +1,4 @@
 import { Text , Box ,Heading, Grid, GridItem, Center , Stat , StatLabel, StatHelpText,StatNumber, Divider } from "@chakra-ui/react"
-import Sidebar from "../components/Sidebar"
 import { fetchApi } from "../utils/fetchApi"
 import { baseURL } from "../utils/fetchApi"
 import Image from "next/image"
