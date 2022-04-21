@@ -3,25 +3,80 @@ import Sidebar from "../components/Sidebar"
 import { fetchApi } from "../utils/fetchApi"
 import { baseURL } from "../utils/fetchApi"
 import Image from "next/image"
+import millify from "millify"
 
 
 
 
 
-export default function Home({coins}) {
-  // console.log(coins)
-  const handleOnError = () => {
-    setImgSrc("https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg");
-  };
+export default function Home({coins , statistics}) {
+  console.log(statistics)
 
   return (
-    <Box height={"100%"} width={"100%"} background={"#EEEEEE"}>
+    
+
+    <Box height={"100%"} width={"100%"} >
+    <Box>
+    <Center>
+    <Heading as='h3' ml={-8} size='xl' mt={3} color="#06113C">
+     Global Crypto stats
+  </Heading>
+  </Center>
+  <Grid templateColumns='repeat(2, 1fr)' gap={4} marginLeft={'80px'} marginTop={14} marginBottom={6}>
+  <GridItem>
+    <Box ml={8} mt={2} width={250} height={100} >
+      <Stat>
+        <StatLabel>Total Coins</StatLabel>
+        <StatNumber>{statistics.totalCoins}</StatNumber>
+      </Stat>
+    </Box>
+  </GridItem>
+
+  <GridItem>
+    <Box ml={8} mt={2} width={250} height={100} >
+      <Stat>
+        <StatLabel>Total Coins</StatLabel>
+        <StatNumber>{millify(statistics.totalCoins)}</StatNumber>
+      </Stat>
+    </Box>
+  </GridItem>
+
+  <GridItem>
+    <Box ml={8}  width={250} height={100} >
+      <Stat>
+        <StatLabel>Total Markets</StatLabel>
+        <StatNumber>{millify(statistics.totalMarkets)}</StatNumber>
+      </Stat>
+    </Box>
+  </GridItem>
+
+  <GridItem>
+    <Box ml={8} mt={2} width={250} height={100} >
+      <Stat>
+        <StatLabel>Total Exchanges</StatLabel>
+        <StatNumber>{statistics.totalExchanges}</StatNumber>
+      </Stat>
+    </Box>
+  </GridItem>
+
+  <GridItem>
+    <Box ml={8} mt={2} width={250} height={100} >
+      <Stat>
+        <StatLabel>Total MarketCap</StatLabel>
+        <StatNumber>{millify(statistics.totalMarketCap)}</StatNumber>
+      </Stat>
+    </Box>
+  </GridItem>
+
+  </Grid>
+    
+    </Box>
     <Center>
     <Heading as='h3' ml={-8} size='xl' mt={3} color="#06113C">
     Top 4 coins
   </Heading>
   </Center>
-    <Grid templateColumns='repeat(2, 1fr)' gap={10} marginLeft={10} marginTop={12} marginBottom={6}>
+    <Grid templateColumns='repeat(2, 1fr)' gap={10} marginLeft={9} marginTop={12} marginBottom={6}>
         {coins.map((coin) => {
           return (
         <GridItem  key= {coin.uuid} >
@@ -36,7 +91,7 @@ export default function Home({coins}) {
 
         <Stat ml={4}>
      <StatLabel mt={2}>Price</StatLabel>
-      <Text fontSize='md'>${coin.price}</Text>
+      <Text fontSize='md'> $ {millify(coin.price)}</Text>
 </Stat>
 
 <Stat ml={4}>
@@ -59,9 +114,11 @@ export default function Home({coins}) {
 export async function  getStaticProps() {
    const apiData = await fetchApi(`${baseURL}/coins`);
    const coins = apiData.data.coins;
+   const statistics = await apiData.data.stats
    return {
     props: {
       coins,
+      statistics
     },
   };
 }

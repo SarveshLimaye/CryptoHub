@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import { baseURL } from "../utils/fetchApi";
 import Image from "next/image";
 import { fetchApi } from "../utils/fetchApi";
+import millify from "millify";
 
 const Crypto = ({coins}) => {
      
@@ -27,7 +28,7 @@ const Crypto = ({coins}) => {
 
         <Stat ml={4}>
      <StatLabel mt={2}>Price</StatLabel>
-      <Text fontSize='md'>${coin.price}</Text>
+      <Text fontSize='md'>${millify(coin.price)}</Text>
 </Stat>
 
 <Stat ml={4}>
