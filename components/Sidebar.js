@@ -51,9 +51,9 @@ return (
     as="nav"
     
 />
-                <Link href="/"><NavItem navSize={navSize} icon={AiOutlineHome} title="Home"/></Link>
+                <Link href="/"><LinkBox w="100%"><NavItem navSize={navSize} icon={AiOutlineHome} title="Home"/></LinkBox></Link>
                 <Link href="/Crypto"><LinkBox w="100%"><NavItem navSize={navSize} icon={BsCurrencyBitcoin} title="Coins" /> </LinkBox></Link>
-                <Link href="/Exchange"><LinkBox w="100%"><NavItem navSize={navSize} icon={BsCurrencyExchange} title="Exchange" /></LinkBox></Link>
+                {/* <Link href="/Exchange"><LinkBox w="100%"><NavItem navSize={navSize} icon={BsCurrencyExchange} title="Exchange" /></LinkBox></Link> */}
                 <Link href="/News"><LinkBox w="100%"><NavItem navSize={navSize} icon={FaRegNewspaper} title="News" /></LinkBox></Link>
 
 
