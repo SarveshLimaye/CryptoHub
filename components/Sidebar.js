@@ -24,7 +24,7 @@ return (
  w={navSize == "small" ? "75px" : "200px"}
  flexDirection="column"
  justifyContent="space-between"
- background="#06113C"
+ background="#1A1A40"
 
 >
 

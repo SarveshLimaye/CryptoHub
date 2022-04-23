@@ -1,15 +1,17 @@
-import { Text , Box ,Heading, Grid, GridItem, Center , Stat , StatLabel, StatHelpText,StatNumber, Divider } from "@chakra-ui/react"
+import { Text , Box ,Heading, Grid, GridItem, Center , Stat , StatLabel, StatArrow,StatNumber, Divider } from "@chakra-ui/react"
 import { fetchApi } from "../utils/fetchApi"
 import { baseURL } from "../utils/fetchApi"
 import Image from "next/image"
 import millify from "millify"
+import { fetchNews} from "../utils/fetchNews"
+import { baseNewsURL } from "../utils/fetchNews"
 
 
 
 
 
-export default function Home({coins , statistics}) {
-  console.log(statistics)
+export default function Home({coins , statistics , news}) {
+  console.log(news)
 
   return (
     
@@ -94,8 +96,15 @@ export default function Home({coins , statistics}) {
 </Stat>
 
 <Stat ml={4}>
-     <StatLabel mt={3}>BTCPrice</StatLabel>
-      <Text fontSize='md'>{coin.btcPrice}</Text>
+     <StatLabel mt={3}>MarketCap</StatLabel>
+      <Text fontSize='md'>{millify(coin.marketCap)}</Text>
+</Stat>
+
+<Stat float={'right'} mr={4}>
+<Text fontSize='lg'>
+      <StatArrow type={coin.change > 0 ? 'increase' : 'decrease'} />
+      {coin.change} %
+    </Text>
 </Stat>
        
         
@@ -114,10 +123,12 @@ export async function  getStaticProps() {
    const apiData = await fetchApi(`${baseURL}/coins`);
    const coins = apiData.data.coins;
    const statistics = await apiData.data.stats
+   const news = await fetchNews(`${baseNewsURL}/news`)
    return {
     props: {
       coins,
-      statistics
+      statistics,
+      news
     },
   };
 }

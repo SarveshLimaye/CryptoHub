@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex , Box , Grid , GridItem ,Center ,Heading, Divider, Stat , StatLabel , StatHelpText ,Text} from "@chakra-ui/react";
+import { StatArrow , Box , Grid , GridItem ,Center ,Heading, Divider, Stat , StatLabel , StatHelpText ,Text} from "@chakra-ui/react";
 import Sidebar from "../components/Sidebar";
 import { baseURL } from "../utils/fetchApi";
 import Image from "next/image";
@@ -31,9 +31,18 @@ const Crypto = ({coins}) => {
       <Text fontSize='md'>${millify(coin.price)}</Text>
 </Stat>
 
+
+
 <Stat ml={4}>
-     <StatLabel mt={3}>BTCPrice</StatLabel>
-      <Text fontSize='md'>{coin.btcPrice}</Text>
+     <StatLabel mt={3}>MarketCap</StatLabel>
+      <Text fontSize='md'>{millify(coin.marketCap)}</Text>
+</Stat>
+
+<Stat float={'right'} mr={4}>
+<Text fontSize='lg'>
+      <StatArrow type={coin.change > 0 ? 'increase' : 'decrease'} />
+      {coin.change }%
+    </Text>
 </Stat>
        
         

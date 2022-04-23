@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://bing-news-search1.p.rapidapi.com"
+export const baseNewsURL = "https://bing-news-search1.p.rapidapi.com"
 
 export const fetchNews = async (url) => {
     const {data} = await axios.get((url) , {

@@ -1,6 +1,6 @@
 import { Box, Center, Grid, GridItem, Heading , Link, Text} from "@chakra-ui/react";
 import React from "react";
-import { fetchNews , baseURL } from "../utils/fetchNews";
+import { fetchNews , baseNewsURL } from "../utils/fetchNews";
 import Image from "next/image";
 
 const News = ({news}) => {
@@ -34,7 +34,7 @@ const News = ({news}) => {
                              <Box key={singleProvider.name}>
                             <Text  ml={3} mt={6} mr={2} size='sm'>{singleProvider.name}</Text>
                             <Box float={'right'} mb={5} mr={4} mt={-6}>
-                            {singleProvider.image === undefined ? <Image alt="provider-image" src={'null'} width={300} height={300} /> : <Image alt={'provider-image'} mt={-3} src={singleProvider.image.thumbnail.contentUrl} width={35} height={35} />}
+                            {singleProvider.image === undefined ? null : <Image alt={'provider-image'} mt={-3} src={singleProvider.image.thumbnail.contentUrl} width={35} height={35} />}
                             </Box>
                             </Box> 
                           )
@@ -56,7 +56,7 @@ const News = ({news}) => {
 export default News
 
 export async function getStaticProps () {
-   const apiData = await fetchNews(`${baseURL}/news/search?q=Cryptocurrency&count=15`);
+   const apiData = await fetchNews(`${baseNewsURL}/news/search?q=Cryptocurrency&count=15`);
    const news = await apiData.value;
    return{
        props:{
