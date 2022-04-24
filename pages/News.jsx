@@ -4,11 +4,6 @@ import { fetchNews , baseNewsURL } from "../utils/fetchNews";
 import Image from "next/image";
 
 const News = ({news}) => {
-//   news.map( (item) => {
-//       {item.image === undefined ? src : setSrc(item.image.thumbnail.contentUrl)}
-//  }) 
-
-
 
     return (
        <Box>
