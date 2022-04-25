@@ -5,6 +5,7 @@ import millify from "millify"
 import { fetchNews} from "../utils/fetchNews"
 import { baseNewsURL } from "../utils/fetchNews"
 import CoinCard from "../components/CoinCard"
+import Title from "../components/Title"
 export default function Home({coins , statistics , news}) {
   console.log(news)
 
@@ -13,11 +14,7 @@ export default function Home({coins , statistics , news}) {
 
     <Box height={"100%"} width={"100%"} >
     <Box>
-    <Center>
-    <Heading as='h3' ml={-8} size='xl' mt={3} color="#06113C">
-     Global Crypto stats
-  </Heading>
-  </Center>
+    <Title title={"Global Crypto Stats"}/>
   <Grid templateColumns='repeat(2, 1fr)' gap={4} marginLeft={'80px'} marginTop={14} marginBottom={6}>
   <GridItem>
     <Box ml={8} mt={2} width={250} height={100} >
@@ -67,11 +64,7 @@ export default function Home({coins , statistics , news}) {
   </Grid>
     
     </Box>
-    <Center>
-    <Heading as='h3' ml={-8} size='xl' mt={3} color="#06113C">
-    Top 4 coins
-  </Heading>
-  </Center>
+    <Title title={"Top Coins"}/>
     <Grid templateColumns='repeat(2, 1fr)' gap={10} marginLeft={9} marginTop={12} marginBottom={6}>
         {coins.map((coin) => <CoinCard coin = {coin} key={coin.uuid} />).slice(0,4)}
         </Grid>
