@@ -19,8 +19,8 @@ export default function Home({coins , statistics , news}) {
     
     </Box>
     <Title title={"Top Coins"}/>
-    <Grid templateColumns='repeat(2, 1fr)' gap={10} marginLeft={9} marginTop={12} marginBottom={6}>
-        {coins.map((coin) => <CoinCard coin = {coin} key={coin.uuid} />).slice(0,4)}
+    <Grid templateColumns='repeat(3, 1fr)' gap={6} marginLeft={2} marginTop={12} marginBottom={6}>
+        {coins.map((coin) => <CoinCard coin = {coin} key={coin.uuid} />).slice(0,6)}
         </Grid>
         </Box>
   )
