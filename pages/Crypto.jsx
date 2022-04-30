@@ -1,7 +1,6 @@
 import React from "react";
-import { Box , Grid  ,Center ,Heading} from "@chakra-ui/react";
-import { baseURL } from "../utils/fetchApi";
-import { fetchApi } from "../utils/fetchApi";
+import { Box , Grid } from "@chakra-ui/react";
+import { baseURL, fetchApi } from "../utils/fetchApi";
 import CoinCard from "../components/CoinCard";
 import Title from "../components/Title";
 
@@ -26,7 +25,7 @@ const Crypto = ({coins}) => {
 export default Crypto
 
 export async function  getStaticProps() {
-  const apiData = await fetchApi(`${baseURL}/coins`);
+  const apiData = await fetchApi(`${baseURL}/coins?limit=91`);
   const coins = apiData.data.coins;
   return {
    props: {
