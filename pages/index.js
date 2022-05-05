@@ -1,4 +1,4 @@
-import { Text , Box ,Heading, Grid, GridItem, Center , Stat , StatLabel, StatArrow,StatNumber, Divider } from "@chakra-ui/react"
+import { Text , Box ,Heading, SimpleGrid, GridItem, Center , Stat , StatLabel, StatArrow,StatNumber, Divider } from "@chakra-ui/react"
 import { fetchApi } from "../utils/fetchApi"
 import { baseURL } from "../utils/fetchApi"
 import { fetchNews} from "../utils/fetchNews"
@@ -18,10 +18,14 @@ export default function Home({coins , statistics , news}) {
      <GlobalStats statistics = {statistics} />
     
     </Box>
+    <Box>
     <Title title={"Top Coins"}/>
-    <Grid templateColumns='repeat(3, 1fr)' gap={6} marginLeft={2} marginTop={12} marginBottom={6}>
+    <Center>
+    <SimpleGrid columns={[1, 2, 3]} gap='4' marginLeft={8} marginTop={12} marginBottom={6}>
         {coins.map((coin) => <CoinCard coin = {coin} key={coin.uuid} />).slice(0,6)}
-        </Grid>
+        </SimpleGrid>
+        </Center>
+        </Box>
         </Box>
   )
 }

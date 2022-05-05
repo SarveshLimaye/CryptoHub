@@ -3,8 +3,7 @@ import Image from "next/image";
 import millify from "millify";
 const CoinCard = ({coin}) => {
     return (
-        <GridItem  key= {coin.uuid} >
-        <Box ml={2} background={"#fff"} marginRight="32px" key ={coin.uuid} height="250px" width="300px" border="black dotted 1px">
+        <Box ml={2} key= {coin.uuid} background={"#fff"} marginRight="32px"  height="250px" width="300px" border="black dotted 1px">
         <Center >
         <Heading as='h6' size='md' mt={4} color={coin.color}>{coin.name}</Heading>
         </Center>
@@ -32,7 +31,6 @@ const CoinCard = ({coin}) => {
        
         
       </Box>
-      </GridItem>
     )
 
 }

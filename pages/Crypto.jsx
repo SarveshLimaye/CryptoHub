@@ -1,5 +1,5 @@
 import React from "react";
-import { Box , Grid } from "@chakra-ui/react";
+import { Box , SimpleGrid} from "@chakra-ui/react";
 import { baseURL, fetchApi } from "../utils/fetchApi";
 import CoinCard from "../components/CoinCard";
 import Title from "../components/Title";
@@ -7,11 +7,11 @@ import Title from "../components/Title";
 const Crypto = ({coins}) => {
      
         return (
-          <Box>
+          <Box >
           <Title title="Coins"/>
-          <Grid templateColumns='repeat(3, 1fr)' gap={4} marginLeft={3} marginTop={13} marginBottom={6}>
+          <SimpleGrid columns={[1, 2, 3]} spacing='80px' spacingX='90px'>
            {coins.map((coin) =>  <CoinCard coin={coin} key={coin.uuid} />)}
-        </Grid>
+        </SimpleGrid>
         </Box>
   
 

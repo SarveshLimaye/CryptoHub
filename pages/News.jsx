@@ -1,4 +1,4 @@
-import { Box, Center, Grid, GridItem, Heading , Link, Text} from "@chakra-ui/react";
+import { Box, Center, SimpleGrid, GridItem, Heading , Link, Text} from "@chakra-ui/react";
 import React from "react";
 import { fetchNews , baseNewsURL } from "../utils/fetchNews";
 import Image from "next/image";
@@ -10,7 +10,7 @@ const News = ({news}) => {
        <Box>
        <Title title={"News"} />
         <Box >
-        <Grid templateColumns='repeat(3, 1fr)' gap={9} marginLeft={10} marginTop={10} marginBottom={6}>
+        <SimpleGrid columns={[1,2,3]} spacing='40px' marginLeft={3} marginTop={10} marginBottom={6}>
         {news.map((item,index) => {
             return (
                 <GridItem key={index}>
@@ -41,7 +41,7 @@ const News = ({news}) => {
 
             )  })}
             
-        </Grid>
+        </SimpleGrid>
         </Box>
        </Box>
     );
