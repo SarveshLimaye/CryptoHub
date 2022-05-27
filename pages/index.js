@@ -14,17 +14,26 @@ export default function Home({coins , statistics , news}) {
 
     <Box height={"100%"} width={"100%"} >
     <Box>
-    <Title title={"Global Crypto Stats"}/>
+    <Box mb='4' ml='3'>
+    <Title title={"Global Stats"} mr='2'/>
+    </Box>
+    <Box ml='13'>
+    <Box ml= {[0,0,'16rem']} mt='8' >
      <GlobalStats statistics = {statistics} />
+     </Box>
+    </Box>
+
     
     </Box>
     <Box>
+    <Box mb='6'>
     <Title title={"Top Coins"}/>
-    <Center>
-    <SimpleGrid columns={[1, 2, 3]} gap='4' marginLeft={8} marginTop={12} marginBottom={6}>
+    </Box>
+   
+    <SimpleGrid columns={[1, 2, 3]} spacing='50px' >
         {coins.map((coin) => <CoinCard coin = {coin} key={coin.uuid} />).slice(0,6)}
         </SimpleGrid>
-        </Center>
+    
         </Box>
         </Box>
   )

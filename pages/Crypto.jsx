@@ -8,8 +8,10 @@ const Crypto = ({coins}) => {
      
         return (
           <Box >
+          <Box mb={8}>
           <Title title="Coins"/>
-          <SimpleGrid columns={[1, 2, 3]} spacing='80px' spacingX='90px'>
+          </Box>
+          <SimpleGrid columns={[1, 2, 3]} spacing='50px' spacingX='40px'>
            {coins.map((coin) =>  <CoinCard coin={coin} key={coin.uuid} />)}
         </SimpleGrid>
         </Box>
@@ -25,7 +27,7 @@ const Crypto = ({coins}) => {
 export default Crypto
 
 export async function  getStaticProps() {
-  const apiData = await fetchApi(`${baseURL}/coins?limit=91`);
+  const apiData = await fetchApi(`${baseURL}/coins?limit=49`);
   const coins = apiData.data.coins;
   return {
    props: {
