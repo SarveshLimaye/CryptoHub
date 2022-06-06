@@ -11,9 +11,11 @@ const Crypto = ({coins}) => {
           <Box mb={8}>
           <Title title="Coins"/>
           </Box>
+          <Box mb={[6,6,6]}>
           <SimpleGrid columns={[1, 2, 3]} spacing='50px' spacingX='40px'>
-           {coins.map((coin) =>  <CoinCard coin={coin} key={coin.uuid} />)}
+           {coins.map((coin) =>  <CoinCard coin={coin} key={coin.uuid} />)}  
         </SimpleGrid>
+        </Box>
         </Box>
   
 

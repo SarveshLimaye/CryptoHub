@@ -1,4 +1,4 @@
-import { GridItem, Box , Text , Divider  , Center , Heading , Stat, StatLabel , StatArrow} from "@chakra-ui/react"
+import { Box , Text , Divider  , Center , Heading , Stat, StatLabel , StatArrow} from "@chakra-ui/react"
 import Image from "next/image";
 import millify from "millify";
 const CoinCard = ({coin}) => {

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Flex, IconButton ,LinkBox} from "@chakra-ui/react"
 import { FaList , FaRegNewspaper } from "react-icons/fa";
-import {BsCurrencyBitcoin , BsCurrencyExchange} from "react-icons/bs";
+import {BsCurrencyBitcoin} from "react-icons/bs";
 import {AiOutlineHome} from "react-icons/ai"
-import {useState} from "react";
 import Link from 'next/link';
 
 
@@ -61,8 +60,6 @@ return (
 
 
 </Flex>
-
-
 
         </div>
         

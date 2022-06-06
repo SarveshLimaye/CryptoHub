@@ -1,4 +1,4 @@
-import { Grid , GridItem , Stat , Box , StatLabel ,StatNumber, SimpleGrid } from "@chakra-ui/react"
+import { Stat , Box , StatLabel ,StatNumber, SimpleGrid } from "@chakra-ui/react"
 import millify from "millify"
 
 const GlobalStats = ({statistics}) => {

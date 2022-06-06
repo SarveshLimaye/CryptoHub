@@ -7,10 +7,9 @@ import {
     Link,
     Menu,
     MenuButton,
-    MenuList
 } from '@chakra-ui/react'
 
-const NavItem = ({ icon, title, description, active, navSize}) => {
+const NavItem = ({ icon, title, active, navSize}) => {
 
     return (
         <Flex
